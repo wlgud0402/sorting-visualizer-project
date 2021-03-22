@@ -60,9 +60,9 @@ function App() {
 
   //거품정렬
   const onBubbleSort = async () => {
-    console.log("솔팅시전", nowSorting);
+    // console.log("솔팅시전", nowSorting);
     setNowSorting(true);
-    console.log("솔팅시작눌렀어", nowSorting);
+    // console.log("솔팅시작눌렀어", nowSorting);
     const [animations, sortedArray] = getBubbleSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -91,7 +91,7 @@ function App() {
   //병합정렬
   const onMergeSort = async () => {
     const [animations, sortedArray] = getMergeSort(arr);
-    console.log(animations, sortedArray);
+    // console.log(animations, sortedArray);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       if (animations[i][2] === "changed") {
