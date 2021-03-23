@@ -8,7 +8,8 @@
 #
 # About algorithms
   ## 1. Bubble Sort
-  https://user-images.githubusercontent.com/61821825/112110810-c0ee7200-8bf6-11eb-8f8f-b927b7829a63.mov
+  <img width="80%" src="https://user-images.githubusercontent.com/61821825/112110810-c0ee7200-8bf6-11eb-8f8f-b927b7829a63.mov"/>
+
 ```
 인접한 값을 계속 비교하는 방식으로 구현이 쉬운편이고, 코드가 직관적입니다.  
 n개의 원소에 대해 n개의 메모리를 사용하므로 데이터를 하나씩 정밀하게 비교할 수 있습니다.  
