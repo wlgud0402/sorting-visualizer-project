@@ -37,6 +37,7 @@ function doMerge(mainArray, startIdx, middleIdx, endIdx, stack, animations) {
   }
   while (i <= middleIdx) {
     // animations.push([k, i, "after"]);
+    // animations.push([k, i, "before"]);
     animations.push([k, stack[i], "changed"]);
     // animations.push([k, i, "before"]);
 
@@ -44,6 +45,8 @@ function doMerge(mainArray, startIdx, middleIdx, endIdx, stack, animations) {
   }
   while (j <= endIdx) {
     // animations.push([k, j, "after"]);
+    // animations.push([k, j, "before"]);
+
     animations.push([k, stack[j], "changed"]);
     // animations.push([k, j, "before"]);
 

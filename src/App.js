@@ -12,7 +12,7 @@ function App() {
   // const choosedSpeed = 10;
   const PRIMARY_COLOR = "turquoise"; //greenyellow
   const SECONDARY_COLOR = "red";
-  const [nowSorting, setNowSorting] = useState(false);
+  const [nowSorting, setNowSorting] = useState("false");
 
   const firstSize = 10;
   const [arr, setArr] = useState([]);
@@ -58,11 +58,12 @@ function App() {
     setArr(array);
   };
 
+  function sortingState() {
+    console.log("솔팅");
+  }
+
   //거품정렬
   const onBubbleSort = async () => {
-    // console.log("솔팅시전", nowSorting);
-    setNowSorting(true);
-    // console.log("솔팅시작눌렀어", nowSorting);
     const [animations, sortedArray] = getBubbleSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -71,6 +72,7 @@ function App() {
           const [barOneIdx, newHeight] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           barOneStyle.height = `${newHeight * barHeightProPortion}px`;
+          sortingState();
         }, i * choosedSpeed);
       } else {
         const [barOneIdx, barTwoIdx] = animations[i];
@@ -81,17 +83,15 @@ function App() {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
+          sortingState();
         }, i * choosedSpeed);
       }
     }
-    // setNowSorting(false);
-    // console.log(nowSorting);
   };
 
   //병합정렬
   const onMergeSort = async () => {
     const [animations, sortedArray] = getMergeSort(arr);
-    // console.log(animations, sortedArray);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       if (animations[i][2] === "changed") {
@@ -112,7 +112,8 @@ function App() {
         }, i * choosedSpeed);
       }
     }
-
+    setNowSorting("true");
+    console.log(nowSorting);
     // for (let i = 0; i < animations.length; i++) {
     //   const arrayBars = document.getElementsByClassName("array-bar");
     //   const isColorChange = i % 3 !== 2;

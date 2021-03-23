@@ -62,7 +62,12 @@ const Header = ({
           className="slider"
         />
       </RangeWrapper>
-      <Button onClick={makeRandomArray}>랜덤 배열</Button>
+      <button
+        onClick={makeRandomArray}
+        className={true ? "sortButton" : "disabled"}
+      >
+        랜덤 배열
+      </button>
       <Button onClick={onMergeClick}>Merge Sort</Button>
       <Button onClick={onQuickClick}>Quick Sort</Button>
       <Button onClick={onSelectionClick}>Selection Sort</Button>
@@ -96,6 +101,7 @@ const Button = styled.p`
 `;
 
 const Wrapper = styled.div`
+  font-weight: bold;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -105,6 +111,29 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.33);
+
+  .sortButton {
+    all: unset;
+    color: white;
+    transition: 0.2s;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 7px;
+    &:hover {
+      color: black;
+      background: #fff;
+      box-shadow: 0 0 10px #fff, 0 0 40px #fff, 0 0 80px #fff;
+      cursor: pointer;
+    }
+  }
+
+  .disabled {
+    all: unset;
+    color: gray;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 7px;
+  }
 `;
 
 const RangeWrapper = styled.div`

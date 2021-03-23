@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# sorting-visualizer-project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### how to start
+1. npm install
+2. npm start
+3. enjoy algorithms!
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#
+# About algorithms
+  ## 1. Bubble Sort
+  https://user-images.githubusercontent.com/61821825/112110810-c0ee7200-8bf6-11eb-8f8f-b927b7829a63.mov
+```
+인접한 값을 계속 비교하는 방식으로 구현이 쉬운편이고, 코드가 직관적입니다.  
+n개의 원소에 대해 n개의 메모리를 사용하므로 데이터를 하나씩 정밀하게 비교할 수 있습니다.  
+하지만 원소의 개수가 많아지면 비교횟수도 많아져 성능이 많이 저하되기 때문에 성능면에서 효율적인 알고리즘은 아닙니다.
+```
+  ## 2. Insertion Sort
+```
+버블정렬의 비교횟수를 줄이기 위해 고안된 정렬입니다..  
+버블정렬의 경우 값이 정렬되어 있더라도 비교연산을 진행하지만 삽입정렬은 자료 배열의 모든요소를 앞에서부터 차례대로  
+이미 정렬된 배열 부분과 비교하여 자신의 위치를 찾아 삽입 하기 때문에 버블정렬보다 비교적 탁월한 성능 효율을 보여줍니다.
+```
+  ## 3. Selection Sort
+```
+선택정렬은 앞에서부터 차례대로 정렬하는 방법입니다.  
+자료 배열중 최솟값을 찾고 찾은 최솟갑을 맨앞에 위치한 값과 교체하는 방식입니다.  
+n개 원소에 대해 n개의 메모리를 사용하기에 데이터를 하나씩 정밀 비교가 가능하며 정렬을 위한 비교 횟수는 많으나 교환 횟수는 상당히 적다는 것이 장점인 정렬 방식입니다.  
+하지만 이미 정렬된 상태에서 소수의 자료가 추가됨으로 재정렬하게 되는 때에는 최악의 처리속도를 보여준다는 단점이 있습니다.
+```
+  ## 4.Merge Sort
+```
+병합정렬은 일종의 분할 정복법 중 하나로 큰 문제를 작은 여러 개의 문제로 쪼개서 각각을 해결한 후 결과를 모아서 원래의 문제를 해결하는 방법입니다. 
+퀵정렬과는 달리 기준값을 설정하는 과정없이 무조건 절반으로 분할하기 때무에 기준값에 따라 성능이 달라지지 않습니다.  
+하지만 병합정렬은 임시배열에 원본맵을 계속해서 옮겨주며 정렬을 하는 방식이기에 추가적인 메모리가 필요하다는 단점이 있습니다.
+```
+  ## 5. Quick Sort
+```
+퀵정렬도 병합정렬과 마찬가지로 분할정복을 통한 정렬방법입니다.
+병합정렬은 분할 단계에서는 아무것도 하지않고 병합하는 단계에서 정렬을 수행하지만,  
+퀵정렬은 분할 단계에서 중요한 작업들을 수행하고 병합시에는 아무것도 하지않는다는 점입니다.  
+처음 하나의 축(Pivot)을 먼저 정하여 이 축의 값보다 작은 값은 왼쪽에 큰 값은 오른쪽으로 위치시킨뒤  
+왼쪽과 오른쪽의 수 들은 다시 각각의 축으로 나누어져 축값이 1이 될 때까지 정렬합니다.  
+가장 많이 사용되는 정렬법이지만 ㄴ기준값에 따라 시간복잡도가 크게 달라져 안정성이 보장되지 않습니다.
+```
