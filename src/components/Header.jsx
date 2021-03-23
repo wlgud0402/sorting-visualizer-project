@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Slider from "@material-ui/core/Slider";
-// import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { useState } from "react";
 
@@ -49,7 +48,8 @@ const Header = ({
           max={150}
           value={typeof value === "number" ? value : 0}
           onChange={handleSliderChange}
-          className="slider"
+          className={nowSorting ? "disabled" : "slider"}
+          disabled={nowSorting}
         />
       </RangeWrapper>
       <RangeWrapper>
@@ -59,20 +59,52 @@ const Header = ({
           max={150}
           value={typeof speed === "number" ? speed : 0}
           onChange={handleSpeedChange}
-          className="slider"
+          className={nowSorting ? "disabled" : "slider"}
+          disabled={nowSorting}
         />
       </RangeWrapper>
       <button
         onClick={makeRandomArray}
-        className={true ? "sortButton" : "disabled"}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
       >
         랜덤 배열
       </button>
-      <Button onClick={onMergeClick}>Merge Sort</Button>
-      <Button onClick={onQuickClick}>Quick Sort</Button>
-      <Button onClick={onSelectionClick}>Selection Sort</Button>
-      <Button onClick={onBubbleClick}>Bubble Sort</Button>
-      <Button onClick={onInsertionClick}>Insertion Sort</Button>
+      <button
+        onClick={onMergeClick}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
+      >
+        Merge Sort
+      </button>
+      <button
+        onClick={onQuickClick}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
+      >
+        Quick Sort
+      </button>
+      <button
+        onClick={onSelectionClick}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
+      >
+        Selection Sort
+      </button>
+      <button
+        onClick={onBubbleClick}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
+      >
+        Bubble Sort
+      </button>
+      <button
+        onClick={onInsertionClick}
+        className={nowSorting ? "disabled" : "sortButton"}
+        disabled={nowSorting}
+      >
+        Insertion Sort
+      </button>
     </Wrapper>
   );
 };
@@ -83,21 +115,6 @@ const Title = styled.p`
   color: wheat;
   font-size: 19px;
   font-weight: bold;
-`;
-
-const Button = styled.p`
-  all: unset;
-  color: white;
-  transition: 0.2s;
-  border-radius: 30px;
-  box-sizing: border-box;
-  padding: 7px;
-  &:hover {
-    color: black;
-    background: #fff;
-    box-shadow: 0 0 10px #fff, 0 0 40px #fff, 0 0 80px #fff;
-    cursor: pointer;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -147,6 +164,11 @@ const RangeWrapper = styled.div`
   .slider {
     padding: 0px;
     color: yellow;
+  }
+
+  .disabled {
+    display: none;
+    color: gray;
   }
 
   .typo {

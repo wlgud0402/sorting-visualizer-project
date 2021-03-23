@@ -9,11 +9,9 @@ import { getInsertionSort } from "./sortingAlgorithms/insertionSort.js";
 import { getQuickSort } from "./sortingAlgorithms/quickSort.js";
 
 function App() {
-  // const choosedSpeed = 10;
   const PRIMARY_COLOR = "turquoise"; //greenyellow
   const SECONDARY_COLOR = "red";
-  const [nowSorting, setNowSorting] = useState("false");
-
+  const [nowSorting, setNowSorting] = useState(false);
   const firstSize = 10;
   const [arr, setArr] = useState([]);
   const [choosedSize, setChoosedSize] = useState(10);
@@ -27,10 +25,6 @@ function App() {
     makeArray(firstSize);
   }, []);
 
-  // useEffect(() => {
-  //   setNowSorting(nowSorting);
-  //   console.log("바뀜", nowSorting);
-  // }, [nowSorting]);
   const onChangeSpeed = (speed) => {
     setChoosedSpeed(speed);
   };
@@ -58,12 +52,9 @@ function App() {
     setArr(array);
   };
 
-  function sortingState() {
-    console.log("솔팅");
-  }
-
   //거품정렬
   const onBubbleSort = async () => {
+    setNowSorting(true);
     const [animations, sortedArray] = getBubbleSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -72,7 +63,6 @@ function App() {
           const [barOneIdx, newHeight] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           barOneStyle.height = `${newHeight * barHeightProPortion}px`;
-          sortingState();
         }, i * choosedSpeed);
       } else {
         const [barOneIdx, barTwoIdx] = animations[i];
@@ -83,7 +73,12 @@ function App() {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
-          sortingState();
+        }, i * choosedSpeed);
+      }
+      if (i === animations.length - 1) {
+        setTimeout(() => {
+          setNowSorting(false);
+          setArr(sortedArray);
         }, i * choosedSpeed);
       }
     }
@@ -91,7 +86,8 @@ function App() {
 
   //병합정렬
   const onMergeSort = async () => {
-    const [animations, sortedArray] = getMergeSort(arr);
+    setNowSorting(true);
+    const [animations, sortedArray] = getMergeSort([...arr]);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       if (animations[i][2] === "changed") {
@@ -111,34 +107,19 @@ function App() {
           barTwoStyle.backgroundColor = color;
         }, i * choosedSpeed);
       }
+      if (i === animations.length - 1) {
+        setTimeout(() => {
+          setNowSorting(false);
+          setArr(sortedArray);
+        }, i * choosedSpeed);
+      }
     }
-    setNowSorting("true");
-    console.log(nowSorting);
-    // for (let i = 0; i < animations.length; i++) {
-    //   const arrayBars = document.getElementsByClassName("array-bar");
-    //   const isColorChange = i % 3 !== 2;
-    //   if (isColorChange) {
-    //     const [barOneIdx, barTwoIdx] = animations[i];
-    //     const barOneStyle = arrayBars[barOneIdx].style;
-    //     const barTwoStyle = arrayBars[barTwoIdx].style;
-    //     const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
-    //     setTimeout(() => {
-    //       barOneStyle.backgroundColor = color;
-    //       barTwoStyle.backgroundColor = color;
-    //     }, i * choosedSpeed);
-    //   } else {
-    //     setTimeout(() => {
-    //       const [barOneIdx, newHeight] = animations[i];
-    //       const barOneStyle = arrayBars[barOneIdx].style;
-    //       barOneStyle.height = `${newHeight * barHeightProPortion}px`;
-    //     }, i * choosedSpeed);
-    //   }
-    // }
   };
 
   //선택정렬
   const onSelectionSort = async () => {
-    let [animations, afterSortedArray] = getSelectionSort(arr);
+    setNowSorting(true);
+    let [animations, sortedArray] = getSelectionSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       if (animations[i][2] === "changed") {
@@ -158,11 +139,18 @@ function App() {
           barTwoStyle.backgroundColor = color;
         }, i * choosedSpeed);
       }
+      if (i === animations.length - 1) {
+        setTimeout(() => {
+          setNowSorting(false);
+          setArr(sortedArray);
+        }, i * choosedSpeed);
+      }
     }
   };
 
   //삽입정렬
   const onInsertionSort = () => {
+    setNowSorting(true);
     const [animations, sortedArray] = getInsertionSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -183,12 +171,19 @@ function App() {
           barTwoStyle.backgroundColor = color;
         }, i * choosedSpeed);
       }
+      if (i === animations.length - 1) {
+        setTimeout(() => {
+          setNowSorting(false);
+          setArr(sortedArray);
+        }, i * choosedSpeed);
+      }
     }
   };
 
   //퀵정렬
   const onQuickSort = () => {
-    const [animations, sortedArr] = getQuickSort(arr);
+    setNowSorting(true);
+    const [animations, sortedArray] = getQuickSort(arr);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       if (animations[i][2] === "changed") {
@@ -207,6 +202,12 @@ function App() {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
+        }, i * choosedSpeed);
+      }
+      if (i === animations.length - 1) {
+        setTimeout(() => {
+          setNowSorting(false);
+          setArr(sortedArray);
         }, i * choosedSpeed);
       }
     }

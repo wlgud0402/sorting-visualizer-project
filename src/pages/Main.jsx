@@ -51,10 +51,6 @@ const Bar = styled.div`
   height: ${(props) => props.height};
   background-color: turquoise;
   margin-right: 2px;
-  /* transition: all ease-in 0.5s;
-  &:hover {
-    background-color: black;
-  } */
 `;
 
 const Step = styled.div`

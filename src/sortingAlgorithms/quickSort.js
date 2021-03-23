@@ -54,60 +54,12 @@ function partition(arr, start, end, animations) {
   // pivot값을 가운데로
   swap(arr, pivotIndex, end);
   animations.push([pivotIndex, end, "after"]);
-  // animations.push([pivotIndex, end, "after"]);
   animations.push([pivotIndex, arr[pivotIndex], "changed"]);
   animations.push([end, arr[end], "changed"]);
   animations.push([pivotIndex, end, "before"]);
 
   return pivotIndex;
 }
-
-// export function getQuickSort(array) {
-//   let animations = [];
-//   let stack = array.slice();
-//   let left = 0;
-//   let right = stack.length - 1;
-//   QuickSort(stack, left, right, animations);
-//   array = stack;
-//   return [animations, array];
-// }
-
-// function QuickSort(array, left, right, animations) {
-//   if (left >= right) {
-//     return;
-//   }
-//   const mid = Math.floor((left + right) / 2);
-//   const pivot = array[mid];
-//   const partition = divide(array, left, right, pivot, animations);
-//   QuickSort(array, left, partition - 1, animations);
-//   QuickSort(array, partition, right, animations);
-//   return array;
-// }
-
-// function divide(array, left, right, pivot, animations) {
-//   while (left <= right) {
-//     while (array[left] < pivot) {
-//       // animations.push([pivot, left, "before"]);
-//       left++;
-//       animations.push([pivot, left, "after"]);
-//       animations.push([pivot, left, "before"]);
-//     }
-//     while (array[right] > pivot) {
-//       // animations.push([pivot, right, "before"]);
-//       right--;
-//       animations.push([pivot, right, "after"]);
-//       animations.push([pivot, right, "before"]);
-//     }
-//     if (left <= right) {
-//       swap(array, left, right);
-//       animations.push([left, array[left], "changed"]);
-//       animations.push([right, array[right], "changed"]);
-//       left++;
-//       right--;
-//     }
-//   }
-//   return left;
-// }
 
 // // [arr[i],arr[j]] = [arr[j],arr[i]]
 function swap(stack, firstIdx, secondIdx) {
